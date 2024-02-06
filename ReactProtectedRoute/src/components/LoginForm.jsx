@@ -1,6 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { TextField, Button, Typography, Container, Paper } from "@mui/material";
 import AuthContext from "../context/AuthContext";
+import LogoutButton from "./LogoutButton";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
@@ -11,10 +12,18 @@ const LoginForm = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     if (username === "admin" && password === "admin") {
+      localStorage.setItem("auth", "true");
       setUser({ username, password });
       isAuth(true);
     }
   };
+
+  useEffect(() => {
+    const authFlag = localStorage.getItem("auth");
+    if (authFlag === "true") {
+      isAuth(true);
+    }
+  }, []);
 
   return (
     <Container component="main" maxWidth="xs">
