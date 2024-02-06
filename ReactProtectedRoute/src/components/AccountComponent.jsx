@@ -4,11 +4,8 @@ import AuthContext from "../context/AuthContext";
 
 const AccountComponent = ({ user }) => {
   const [userBalance, setUserBalance] = useState(user.balance);
-  const { user, setUser } = useContext(AuthContext);
-
   const handleWithdraw = () => {
     setUserBalance(0);
-    setUser;
     alert("Withdrawal successful!");
   };
 
