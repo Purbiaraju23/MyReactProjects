@@ -5,7 +5,6 @@ import LogoutButton from "./components/LogoutButton";
 import AuthContext from "./context/AuthContext";
 import {
   Container,
-  Paper,
   Typography,
   CssBaseline,
   Box,
